@@ -35,10 +35,24 @@ colrv1_map = {}
 
 
 # Over the layers, replacing the existing solid paint with a gradient for color index 0
-lin_grad = {
+grad_c1_c2 = {
     "Format": ot.PaintFormat.PaintLinearGradient,
     "ColorLine": {
         "ColorStop": [(0.0, grad_c1), (1.0, grad_c2)],
+        "Extend": "reflect",
+    },
+    "x0": 0,
+    "y0": 0,
+    "x1": 0,
+    "y1": 900,
+    "x2": 100,
+    "y2": 0,
+}
+
+grad_c2_c1 = {
+    "Format": ot.PaintFormat.PaintLinearGradient,
+    "ColorLine": {
+        "ColorStop": [(0.0, grad_c2), (1.0, grad_c1)],
         "Extend": "reflect",
     },
     "x0": 0,
@@ -54,13 +68,16 @@ for glyph_name, layers in colr0.ColorLayers.items():
   colrv1_map[glyph_name] = (ot.PaintFormat.PaintColrLayers, v1_layers)
 
   for layer in layers:
-    fill = {
-      "Format": ot.PaintFormat.PaintSolid,
-      "PaletteIndex": layer.colorID,
-      "Alpha": 1,
-    }
+    # Match COLRv0 fill
+    # fill = {
+    #   "Format": ot.PaintFormat.PaintSolid,
+    #   "PaletteIndex": layer.colorID,
+    #   "Alpha": 1,
+    # }
     if layer.colorID == cpal_red:
-      fill = lin_grad
+      fill = grad_c1_c2
+    else:
+      fill = grad_c2_c1
     v1_layers.append({
       "Format": ot.PaintFormat.PaintGlyph,
       "Paint": fill,
