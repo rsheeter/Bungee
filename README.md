@@ -4,6 +4,16 @@ In the crowded urban environment, space for signage is always at a premium. From
 
 Learn more about Bungee at [djr.com/bungee](https://djr.com/bungee).
 
+## Hacked up copy with COLRv1 gradients
+
+This repository contains a simple hack on Bungee to add gradients for the purpose of demonstrating COLRv1.
+
+```
+python scripts/make_gradient_colrv1.py fonts/Bungee_Color_Fonts/BungeeColor-Regular_colr_Windows.ttf
+```
+
+![image](https://user-images.githubusercontent.com/6466432/144980117-4e28b0aa-8a43-4079-b2ef-3541d461984c.png)
+
 ## Specimen
 
 ![Bungee Specimen](specimen.png)
