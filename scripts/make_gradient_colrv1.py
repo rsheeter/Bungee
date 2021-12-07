@@ -93,7 +93,28 @@ pprint.PrettyPrinter(indent=2).pprint(colrv1_map)
 colr = builder.buildCOLR(colrv1_map)
 font["COLR"] = colr
 
-# TODO we should presumably update the 'name' table (?)
+name_table = font['name']
+
+def set_name(name_id, new_value):
+  name_table.setName(new_value, name_id, 1, 0, 0)  # Mac
+  name_table.setName(new_value, name_id, 3, 1, 0x409)  # Windows
+
+# I hope this is roughly reasonable :)
+# Ref https://docs.microsoft.com/en-us/typography/opentype/spec/name#name-ids
+set_name(0, "Copyright 2021 Roderick Sheeter")
+set_name(1, "Bungee Spice Regular")
+set_name(3, "0.0.1")
+set_name(4, "Bungee Spice Regular")
+set_name(5, "Version 0.0.1")
+set_name(6, "BungeeSpice-Regular")
+name_table.removeNames(nameID=7)
+set_name(8, "Rod S")
+name_table.removeNames(nameID=9)
+set_name(10, "Bungee derivative created to exhibit COLRv1 gradients")
+name_table.removeNames(nameID=11)
+name_table.removeNames(nameID=12)
+set_name(16, "Bungee Spice")
+
 
 out_file = sys.argv[1] + "-colrv1.ttf"
 font.save(out_file)
