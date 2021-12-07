@@ -15,6 +15,8 @@ python scripts/make_gradient_colrv1.py fonts/Bungee_Color_Fonts/BungeeColor-Regu
 Note the use of two gradients in opposing direction within a single glyph. To make your own variant, perhaps going
 between light and dark blue:
 
+## Build your own copy
+
 ### Establish a virtual environment your favorite way
 
 ```
