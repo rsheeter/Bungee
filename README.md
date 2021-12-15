@@ -60,6 +60,8 @@ Open http://localhost:8010/test.html in a browser, it should look something like
 
 ![image](https://user-images.githubusercontent.com/6466432/145114577-9297eaed-ffdd-4a75-9ccd-f02162328850.png)
 
+If you try this out and want to share we'd love it if you'd send us a screenshot at https://twitter.com/googlefonts. If you get stuck please file an issue here.
+
 ## Specimen
 
 TODO link when one exists :)
